@@ -1,228 +1,217 @@
 ---
 import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Us',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    tagline="About us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
-  >
+  <!-- Hero -->
+  <Hero tagline="About Us">
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Scholars standing up<br />
+      <span class="text-accent dark:text-white">for human rights</span>
     </Fragment>
-
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      Scholars for Human Rights is a community of doctoral and professional students from across
+      Boston universities who are committed to the advancement and protection of scholarship for social justice.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Vision & Mission -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
+    <div class="space-y-10">
+      <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-8 shadow-sm">
+        <h2 class="text-xl font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4">Vision Statement</h2>
+        <blockquote class="text-lg leading-relaxed text-gray-700 dark:text-gray-200 italic border-l-4 border-blue-400 pl-6">
+          Scholars for Human Rights is committed to building a just and equitable world centered in empathy and community.
+          SHR seeks to respect the dignity of all students, workers, and communities who make learning, understanding, and
+          education possible. We operate under the belief that we are all interconnected and emphasize growth through
+          caring for the whole person.
+        </blockquote>
+      </div>
 
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
+      <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-8 shadow-sm">
+        <h2 class="text-xl font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4">Mission Statement</h2>
+        <blockquote class="text-lg leading-relaxed text-gray-700 dark:text-gray-200 italic border-l-4 border-blue-400 pl-6">
+          SHR is committed to providing material and organizational support to value-aligned groups endeavoring to uplift
+          and protect their communities. We work to amplify equitable and compassionate policies that are attuned to how
+          systemic injustices continue to shape the present. We seek to create spaces for individuals to share knowledge,
+          build understanding, and educate one another on current issues.
+        </blockquote>
+      </div>
+    </div>
+  </section>
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
+  <!-- Our Story -->
+  <Content
+    isReversed
     items={[
       {
-        title: 'Educational',
+        title: 'How we started',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          'SHR was founded in spring 2025 by Meghan McCoy, a third-year PhD candidate in the BC History Department, in response to alarming changes in the federal government. What began as an email grew into a community of scholars who refuse to stay silent.',
       },
       {
-        title: 'Interior Design',
+        title: 'Who we are',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+          'We are PhD candidates, law students, and professional students from universities across Boston, united by a commitment to human rights, democratic values, and the belief that scholars have both the privilege and responsibility to act.',
       },
       {
-        title: 'Photography',
+        title: 'Our intention',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+          'We intend to outlast the present moment. SHR is built to be a lasting organization — not just a response to one administration, but a permanent community of engaged scholars.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Scholars meeting together',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Our story</h3>
+      From a single email in April 2025 to a growing organization with a mission, vision, leadership structure,
+      and a record of action — we built this from scratch, together.
+    </Fragment>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
+  <!-- Issues we work on -->
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
+    tagline="Our focus areas"
+    title="Issues we work on"
+    subtitle="SHR engages with a range of issues where scholar voices and advocacy can make a difference."
     items={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
+        title: 'Racial Justice',
+        description: 'Challenging systemic racism in institutions, policy, and practice.',
+        icon: 'tabler:scale',
       },
       {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
+        title: 'Gender, Safety & Equity',
+        description: 'Advocating for gender equity and safety in academic and public life.',
+        icon: 'tabler:shield',
       },
       {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
+        title: 'LGBTQ+ Rights',
+        description: 'Standing with LGBTQ+ communities against discrimination and erasure.',
+        icon: 'tabler:heart',
       },
       {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: 'Academic Freedom',
+        description: 'Defending the freedom to research, teach, and publish without political interference.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Worker & Immigrant Rights',
+        description: 'Supporting workers, international students, and immigrant communities facing increasing vulnerability.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Class Inequality',
+        description: 'Addressing economic injustice and advocating for equitable access to resources and opportunity.',
+        icon: 'tabler:building-community',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- What we do -->
+  <Steps2
+    title="How we act"
+    subtitle="SHR takes action across several areas."
+    items={[
+      {
+        title: 'Political Advocacy',
+        description:
+          'We engage with city, state, and federal government — writing letters, attending hearings, and connecting with representatives like Boston City Council and Congress members.',
+      },
+      {
+        title: 'Community Engagement',
+        description:
+          'We host workshops, teach-ins, Know Your Rights trainings, and partner with aligned organizations to bring resources to campuses and communities.',
+      },
+      {
+        title: 'Material Support',
+        description:
+          'We organize food drives, letter-writing events, and direct support initiatives for vulnerable community members — including international students and food-insecure neighbors.',
+      },
+      {
+        title: 'Writing & Research',
+        description:
+          'We provide a platform for scholars to write about social justice issues, demonstrating the public value of higher education and graduate scholarship.',
+      },
+      {
+        title: 'Social Media & Outreach',
+        description:
+          'We maintain a presence on Instagram and other platforms to share our work, amplify advocacy, and connect with the broader community.',
       },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
+  <!-- Leadership structure -->
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
+    tagline="Organization"
+    title="Our leadership committee"
+    subtitle="SHR is led by a collective leadership committee where every role carries equal decision-making power."
     items={[
       {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+        title: 'Events Planner',
+        description: 'Plans events on campus and in the community — from Know Your Rights trainings to social gatherings.',
+        icon: 'tabler:calendar',
       },
       {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+        title: 'Social Media Chair',
+        description: 'Manages SHR social media platforms and website updates.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: 'Community Liaison',
+        description: 'Builds and maintains relationships with aligned community organizations (ACLU MA, LUCE, etc.).',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'Policy Tracker',
+        description: 'Monitors new policies from Boston City Hall, the state legislature, and federal government.',
+        icon: 'tabler:news',
+      },
+      {
+        title: 'Internal Administrator',
+        description: 'Manages the SHR email account, answers inquiries, and onboards new members.',
+        icon: 'tabler:mail',
       },
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get in touch',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="title">Ready to get involved?</Fragment>
+    <Fragment slot="subtitle">
+      Everyone is welcome at every meeting, whether you've attended before or not.
+      There are no barriers to starting whenever you can.
+    </Fragment>
+  </CallToAction>
 </Layout>

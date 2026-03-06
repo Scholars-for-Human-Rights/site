@@ -1,0 +1,216 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Resources',
+};
+
+const foodResources = [
+  {
+    name: 'Greater Boston Food Bank',
+    region: 'Eastern Massachusetts',
+    description: 'Partners with local food banks, pantries, and community meal programs across 9 counties and 190 towns in Eastern Mass. Use the Agency Partner Locator to find specific options near you.',
+    link: 'https://www.gbfb.org/need-food/',
+  },
+  {
+    name: 'Centre Street Food Pantry',
+    region: 'Newton / Brookline / Waltham / Watertown / Wellesley',
+    description: 'Curbside delivery model. Appointments available every Tuesday and third Saturday. One appointment per month. Must be a resident of a qualifying area.',
+    link: 'https://www.centrestfoodpantry.org/get-groceries',
+  },
+  {
+    name: 'Brookline Food Pantry',
+    region: 'Brookline',
+    description: 'Serves Brookline residents. Shop once a week with a valid ID.',
+    link: 'https://brooklinefoodpantry.org/get-groceries/',
+  },
+  {
+    name: 'Allston-Brighton Food Pantry',
+    region: 'Allston / Brighton',
+    description: 'Free groceries every Wednesday and second/fourth Saturdays. Weekly community supper and a 24/7 community fridge.',
+    link: 'https://abfoodpantry.com/services/',
+  },
+  {
+    name: 'Newton Food Pantry',
+    region: 'Newton',
+    description: '5-day supply of food twice a month. Must be a Newton resident or registered at a local college/university. Registration required.',
+    link: 'https://newtonfoodpantry.org/get-help/',
+  },
+  {
+    name: 'ABCD Food Access Centers',
+    region: 'Boston (multiple locations)',
+    description: 'Non-profit providing food assistance to underserved communities across Boston. 5 Food Access Centers. Many services require advance appointments.',
+    link: 'https://bostonabcd.org/service/food-accesscenters/',
+  },
+  {
+    name: 'Project Bread FoodSource Hotline',
+    region: 'Massachusetts',
+    description: 'Call 1-800-645-8333 for support finding local food resources. Especially important given ongoing SNAP benefit uncertainty.',
+    link: 'https://projectbread.org/get-help',
+  },
+  {
+    name: 'Mass.gov Food Assistance',
+    region: 'Massachusetts',
+    description: 'Starting point for information on SNAP benefits, MEFAP, and local food assistance programs across the state.',
+    link: 'https://www.mass.gov/how-to/find-a-local-food-bank',
+  },
+];
+
+const advocacyResources = [
+  {
+    name: 'ACLU of Massachusetts',
+    description: 'The ACLU has filed over 100 legal actions against executive overreach. Find resources, events, and ways to take action.',
+    link: 'https://www.aclum.org/',
+  },
+  {
+    name: 'Academic Solidarity with Palestine',
+    description: 'Volunteers needed, including English teachers. Not a long time commitment and a good fit for graduate students. Contact Catherine Enwright at enwrighc@bc.edu for more information.',
+    link: '#',
+  },
+  {
+    name: 'Eagles Against Genocide (BC)',
+    description: 'On-campus group that hosts ICE Watch trainings, Know Your Rights sessions, and community organizing events. Find them on Instagram.',
+    link: '#',
+  },
+  {
+    name: 'Faculty for Justice (BC)',
+    description: 'Faculty advocacy group at Boston College aligned with social justice values. A potential partner organization for SHR.',
+    link: '#',
+  },
+  {
+    name: 'Undoing Oppression Committee (BC)',
+    description: 'Another faculty group at BC focused on dismantling systemic oppression. A community partner for SHR.',
+    link: '#',
+  },
+];
+
+const immigrationResources = [
+  {
+    name: 'BC OISS — Office of International Students & Scholars',
+    description: 'BC\'s office for international students. Has hosted info sessions with immigration attorneys. If you are an F-1 student with concerns, contact OISS as a first step.',
+    link: '#',
+  },
+  {
+    name: 'BC Immigration Clinic',
+    description: 'BC Law School immigration clinic. Contact: Tiara Nourishad — nourisht@bc.edu',
+    link: '#',
+  },
+  {
+    name: 'National Lawyers Guild (BC Chapter)',
+    description: 'Law students providing legal support and resources. Contacts: Leah Cohen (cohenqx@bc.edu) and Virginia Ambeliotis (ambeliot@bc.edu)',
+    link: '#',
+  },
+  {
+    name: 'ICE on Campus — What to Do',
+    description: 'If you see any ICE officer on campus or in a classroom, immediately alert BC Police (emergency: 617-552-4444 / non-emergency: 617-552-4440) and BC General Counsel Dr. Nora Field (nora.field@bc.edu / 617-552-4473).',
+    link: '#',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero tagline="Resources">
+    <Fragment slot="title">
+      Resources & <span class="text-accent dark:text-white">Support</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      A curated list of resources compiled by SHR members — for food assistance, advocacy,
+      immigration support, and more. We will keep this list updated as the situation evolves.
+    </Fragment>
+  </Hero>
+
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl space-y-16">
+
+    <!-- Food Resources -->
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Food Assistance</h2>
+      <p class="text-gray-500 dark:text-gray-400 mb-8">
+        Local food banks and pantries near Boston-area universities. Many have specific eligibility requirements —
+        check each site for details.
+      </p>
+      <div class="space-y-5">
+        {foodResources.map((r) => (
+          <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white">{r.name}</h3>
+                <p class="text-sm font-medium text-blue-600 dark:text-blue-400">{r.region}</p>
+                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{r.description}</p>
+              </div>
+              {r.link !== '#' && (
+                <a
+                  href={r.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition shrink-0"
+                >
+                  Visit site
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Advocacy Resources -->
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Advocacy & Community Organizations</h2>
+      <p class="text-gray-500 dark:text-gray-400 mb-8">
+        Organizations that SHR partners with or recommends for those looking to get more involved.
+      </p>
+      <div class="space-y-5">
+        {advocacyResources.map((r) => (
+          <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white">{r.name}</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{r.description}</p>
+              </div>
+              {r.link !== '#' && (
+                <a
+                  href={r.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition shrink-0"
+                >
+                  Visit site
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Immigration Resources -->
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Immigration & Campus Safety</h2>
+      <p class="text-gray-500 dark:text-gray-400 mb-8">
+        Resources for international students and community members with immigration concerns.
+        If you are struggling or scared, please reach out — to SHR or to any of the contacts below.
+      </p>
+      <div class="space-y-5">
+        {immigrationResources.map((r) => (
+          <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
+            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{r.name}</h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{r.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="rounded-xl bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 p-8">
+      <h3 class="text-lg font-bold text-blue-900 dark:text-blue-100 mb-2">Know of a resource we should add?</h3>
+      <p class="text-blue-800 dark:text-blue-200 text-sm leading-relaxed">
+        This page is a living document. If you know of a resource — a food pantry, legal clinic,
+        advocacy organization, or anything else — that should be listed here, please
+        <a href="/contact" class="underline font-semibold">get in touch</a> and we'll add it.
+      </p>
+    </div>
+
+  </section>
+</Layout>
