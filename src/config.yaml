@@ -11,7 +11,7 @@ metadata:
   title:
     default: Scholars for Human Rights
     template: '%s — Scholars for Human Rights'
-  description: "A political advocacy and social justice organization for PhD, Law, and Professional students across Boston universities."
+  description: 'A political advocacy and social justice organization for PhD, Law, and Professional students across Boston universities.'
   robots:
     index: true
     follow: true

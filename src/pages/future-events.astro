@@ -8,7 +8,14 @@ const metadata = {
 };
 
 // Add future events here as the organization grows
-const events: { title: string; date: string; time: string; location: string; description: string; rsvpLink?: string }[] = [
+const events: {
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  rsvpLink?: string;
+}[] = [
   // Example structure:
   // {
   //   title: 'Informational Meeting',
@@ -28,49 +35,54 @@ const events: { title: string; date: string; time: string; location: string; des
       Upcoming <span class="text-accent dark:text-white">Events</span>
     </Fragment>
     <Fragment slot="subtitle">
-      Join us at our next gathering. Events are open to PhD, Law, and Professional students
-      across Boston universities. Zoom links are available for those who cannot attend in person.
+      Join us at our next gathering. Events are open to PhD, Law, and Professional students across Boston universities.
+      Zoom links are available for those who cannot attend in person.
     </Fragment>
   </Hero>
 
   <!-- Events List -->
   <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
-    {events.length === 0 ? (
-      <div class="text-center py-16">
-        <p class="text-xl text-gray-500 dark:text-gray-400">
-          No upcoming events at the moment. Check back soon — we're always organizing!
-        </p>
-        <p class="mt-4 text-gray-500 dark:text-gray-400">
-          Want to be notified about future events?
-          <a href="/contact" class="text-blue-600 dark:text-blue-400 underline ml-1">Get in touch</a>.
-        </p>
-      </div>
-    ) : (
-      <div class="space-y-10">
-        {events.map((event) => (
-          <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-8 shadow-sm">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-              <div>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{event.title}</h2>
-                <p class="mt-1 text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wide">
-                  {event.date} &bull; {event.time}
-                </p>
-                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{event.location}</p>
+    {
+      events.length === 0 ? (
+        <div class="text-center py-16">
+          <p class="text-xl text-gray-500 dark:text-gray-400">
+            No upcoming events at the moment. Check back soon — we're always organizing!
+          </p>
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
+            Want to be notified about future events?
+            <a href="/contact" class="text-blue-600 dark:text-blue-400 underline ml-1">
+              Get in touch
+            </a>
+            .
+          </p>
+        </div>
+      ) : (
+        <div class="space-y-10">
+          {events.map((event) => (
+            <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-8 shadow-sm">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{event.title}</h2>
+                  <p class="mt-1 text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wide">
+                    {event.date} &bull; {event.time}
+                  </p>
+                  <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{event.location}</p>
+                </div>
+                {event.rsvpLink && (
+                  <a
+                    href={event.rsvpLink}
+                    class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition shrink-0"
+                  >
+                    RSVP
+                  </a>
+                )}
               </div>
-              {event.rsvpLink && (
-                <a
-                  href={event.rsvpLink}
-                  class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 transition shrink-0"
-                >
-                  RSVP
-                </a>
-              )}
+              <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">{event.description}</p>
             </div>
-            <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">{event.description}</p>
-          </div>
-        ))}
-      </div>
-    )}
+          ))}
+        </div>
+      )
+    }
   </section>
 
   <!-- CTA -->
@@ -85,8 +97,8 @@ const events: { title: string; date: string; time: string; location: string; des
   >
     <Fragment slot="title">Have an event idea?</Fragment>
     <Fragment slot="subtitle">
-      We're always looking to host new discussions, workshops, and advocacy events.
-      Reach out and let us know what you'd like to see.
+      We're always looking to host new discussions, workshops, and advocacy events. Reach out and let us know what you'd
+      like to see.
     </Fragment>
   </CallToAction>
 </Layout>
